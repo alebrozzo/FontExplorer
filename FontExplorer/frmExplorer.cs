@@ -40,13 +40,19 @@ namespace FontExplorer
       var newLabel = new Label()
       {
         Font = new Font(family, 24),
-        Size = new Size(250, 50),
+        Size = new Size(250, 75),
         Name = "lblSample_" + family,
         AutoEllipsis = true,
         UseMnemonic = false,
         TextAlign = ContentAlignment.MiddleCenter,
       };
+      this.ttFontName.SetToolTip(newLabel, family.Name);
       return newLabel;
+    }
+
+    private void frmExplorer_Load(object sender, System.EventArgs e)
+    {
+      ((mdiContainer)this.MdiParent).ssStatusBar.Items["tsiFontCount"].Text = $"{this.fontList.Count} fonts";
     }
   }
 }

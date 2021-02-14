@@ -58,55 +58,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing.Primitives" name="System.Drawing.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>39, 17</value>
-  </data>
-  <data name="toolStripStatusLabel.Text" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="ssStatusBar.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>0, 501</value>
   </data>
   <assembly alias="System.Windows.Forms.Primitives" name="System.Windows.Forms.Primitives, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="statusStrip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="ssStatusBar.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
     <value>1, 0, 16, 0</value>
   </data>
-  <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+  <data name="ssStatusBar.Size" type="System.Drawing.Size, System.Drawing.Primitives">
     <value>737, 22</value>
   </data>
   <assembly alias="System.Private.CoreLib" name="System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e" />
-  <data name="statusStrip.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="ssStatusBar.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>2</value>
   </data>
-  <data name="statusStrip.Text" xml:space="preserve">
+  <data name="ssStatusBar.Text" xml:space="preserve">
     <value>StatusStrip</value>
   </data>
-  <data name="&gt;&gt;statusStrip.Name" xml:space="preserve">
-    <value>statusStrip</value>
+  <data name="&gt;&gt;ssStatusBar.Name" xml:space="preserve">
+    <value>ssStatusBar</value>
   </data>
-  <data name="&gt;&gt;statusStrip.Type" xml:space="preserve">
+  <data name="&gt;&gt;ssStatusBar.Type" xml:space="preserve">
     <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;statusStrip.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ssStatusBar.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ssStatusBar.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="mniChooseFont.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>86, 20</value>
+  <data name="tsiFontCount.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>39, 17</value>
   </data>
-  <data name="mniChooseFont.Text" xml:space="preserve">
-    <value>Choose &amp;Font</value>
-  </data>
-  <data name="mniChooseFont.ToolTipText" xml:space="preserve">
-    <value>Look at text in different fonts</value>
-  </data>
-  <data name="mniManageFonts.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>94, 20</value>
-  </data>
-  <data name="mniManageFonts.Text" xml:space="preserve">
-    <value>&amp;Manage Fonts</value>
+  <data name="tsiFontCount.Text" xml:space="preserve">
+    <value>Status</value>
   </data>
   <data name="mnsMainMenu.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>0, 0</value>
@@ -132,6 +117,24 @@
   <data name="&gt;&gt;mnsMainMenu.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="mniChooseFont.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>86, 20</value>
+  </data>
+  <data name="mniChooseFont.Text" xml:space="preserve">
+    <value>Choose &amp;Font</value>
+  </data>
+  <data name="mniChooseFont.ToolTipText" xml:space="preserve">
+    <value>Look at text in different fonts</value>
+  </data>
+  <data name="mniManageFonts.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>94, 20</value>
+  </data>
+  <data name="mniManageFonts.Text" xml:space="preserve">
+    <value>&amp;Manage Fonts</value>
+  </data>
+  <data name="mniManageFonts.Visible" type="System.Boolean, System.Private.CoreLib">
+    <value>False</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>True</value>
   </metadata>
@@ -154,10 +157,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Font Explorer</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLabel.Name" xml:space="preserve">
-    <value>toolStripStatusLabel</value>
+  <data name="&gt;&gt;tsiFontCount.Name" xml:space="preserve">
+    <value>tsiFontCount</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLabel.Type" xml:space="preserve">
+  <data name="&gt;&gt;tsiFontCount.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolTip.Name" xml:space="preserve">

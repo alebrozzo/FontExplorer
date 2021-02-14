@@ -29,10 +29,12 @@ namespace FontExplorer
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmExplorer));
       this.txtUserText = new System.Windows.Forms.TextBox();
       this.flowLabelContainer = new System.Windows.Forms.FlowLayoutPanel();
-      this.lblSample1 = new System.Windows.Forms.Label();
+      this.lblSample = new System.Windows.Forms.Label();
+      this.ttFontName = new System.Windows.Forms.ToolTip(this.components);
       this.flowLabelContainer.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -47,15 +49,16 @@ namespace FontExplorer
       // flowLabelContainer
       // 
       resources.ApplyResources(this.flowLabelContainer, "flowLabelContainer");
-      this.flowLabelContainer.Controls.Add(this.lblSample1);
+      this.flowLabelContainer.Controls.Add(this.lblSample);
       this.flowLabelContainer.Name = "flowLabelContainer";
       // 
-      // lblSample1
+      // lblSample
       // 
-      this.lblSample1.AutoEllipsis = true;
-      resources.ApplyResources(this.lblSample1, "lblSample1");
-      this.lblSample1.Name = "lblSample1";
-      this.lblSample1.UseMnemonic = false;
+      this.lblSample.AutoEllipsis = true;
+      resources.ApplyResources(this.lblSample, "lblSample");
+      this.lblSample.Name = "lblSample";
+      this.ttFontName.SetToolTip(this.lblSample, resources.GetString("lblSample.ToolTip"));
+      this.lblSample.UseMnemonic = false;
       // 
       // frmExplorer
       // 
@@ -66,6 +69,7 @@ namespace FontExplorer
       this.Name = "frmExplorer";
       this.Tag = "";
       this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+      this.Load += new System.EventHandler(this.frmExplorer_Load);
       this.flowLabelContainer.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
@@ -76,7 +80,8 @@ namespace FontExplorer
 
     private System.Windows.Forms.TextBox txtUserText;
     private System.Windows.Forms.FlowLayoutPanel flowLabelContainer;
-    private System.Windows.Forms.Label lblSample1;
+    private System.Windows.Forms.Label lblSample;
+    private System.Windows.Forms.ToolTip ttFontName;
   }
 }
 

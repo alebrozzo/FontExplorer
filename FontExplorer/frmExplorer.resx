@@ -93,43 +93,6 @@
   <data name="flowLabelContainer.AutoScroll" type="System.Boolean, System.Private.CoreLib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-  <data name="lblSample1.Font" type="System.Drawing.Font, System.Drawing.Common">
-    <value>Segoe UI, 24pt</value>
-  </data>
-  <data name="lblSample1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblSample1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>3, 0</value>
-  </data>
-  <data name="lblSample1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>250, 50</value>
-  </data>
-  <data name="lblSample1.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>2</value>
-  </data>
-  <data name="lblSample1.Text" xml:space="preserve">
-    <value>lblSample1</value>
-  </data>
-  <data name="lblSample1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing.Common">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="lblSample1.Visible" type="System.Boolean, System.Private.CoreLib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblSample1.Name" xml:space="preserve">
-    <value>lblSample1</value>
-  </data>
-  <data name="&gt;&gt;lblSample1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblSample1.Parent" xml:space="preserve">
-    <value>flowLabelContainer</value>
-  </data>
-  <data name="&gt;&gt;lblSample1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="flowLabelContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -154,6 +117,46 @@
   <data name="&gt;&gt;flowLabelContainer.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+  <data name="lblSample.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI, 24pt</value>
+  </data>
+  <data name="lblSample.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblSample.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 0</value>
+  </data>
+  <data name="lblSample.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>250, 50</value>
+  </data>
+  <data name="lblSample.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>2</value>
+  </data>
+  <data name="lblSample.Text" xml:space="preserve">
+    <value>lblSample</value>
+  </data>
+  <data name="lblSample.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing.Common">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="lblSample.ToolTip" xml:space="preserve">
+    <value>Sample test</value>
+  </data>
+  <data name="lblSample.Visible" type="System.Boolean, System.Private.CoreLib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblSample.Name" xml:space="preserve">
+    <value>lblSample</value>
+  </data>
+  <data name="&gt;&gt;lblSample.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSample.Parent" xml:space="preserve">
+    <value>flowLabelContainer</value>
+  </data>
+  <data name="&gt;&gt;lblSample.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>True</value>
   </metadata>
@@ -165,6 +168,12 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Font Explorer</value>
+  </data>
+  <data name="&gt;&gt;ttFontName.Name" xml:space="preserve">
+    <value>ttFontName</value>
+  </data>
+  <data name="&gt;&gt;ttFontName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmExplorer</value>

@@ -31,27 +31,27 @@ namespace FontExplorer
     {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiContainer));
-      this.statusStrip = new System.Windows.Forms.StatusStrip();
-      this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+      this.ssStatusBar = new System.Windows.Forms.StatusStrip();
+      this.tsiFontCount = new System.Windows.Forms.ToolStripStatusLabel();
       this.toolTip = new System.Windows.Forms.ToolTip(this.components);
       this.mnsMainMenu = new System.Windows.Forms.MenuStrip();
       this.mniChooseFont = new System.Windows.Forms.ToolStripMenuItem();
       this.mniManageFonts = new System.Windows.Forms.ToolStripMenuItem();
-      this.statusStrip.SuspendLayout();
+      this.ssStatusBar.SuspendLayout();
       this.mnsMainMenu.SuspendLayout();
       this.SuspendLayout();
       // 
-      // statusStrip
+      // ssStatusBar
       // 
-      this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-      resources.ApplyResources(this.statusStrip, "statusStrip");
-      this.statusStrip.Name = "statusStrip";
+      this.ssStatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsiFontCount});
+      resources.ApplyResources(this.ssStatusBar, "ssStatusBar");
+      this.ssStatusBar.Name = "ssStatusBar";
       // 
-      // toolStripStatusLabel
+      // tsiFontCount
       // 
-      this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-      resources.ApplyResources(this.toolStripStatusLabel, "toolStripStatusLabel");
+      this.tsiFontCount.Name = "tsiFontCount";
+      resources.ApplyResources(this.tsiFontCount, "tsiFontCount");
       // 
       // mnsMainMenu
       // 
@@ -78,12 +78,12 @@ namespace FontExplorer
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.Controls.Add(this.mnsMainMenu);
-      this.Controls.Add(this.statusStrip);
+      this.Controls.Add(this.ssStatusBar);
       this.IsMdiContainer = true;
       this.Name = "mdiContainer";
       this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-      this.statusStrip.ResumeLayout(false);
-      this.statusStrip.PerformLayout();
+      this.ssStatusBar.ResumeLayout(false);
+      this.ssStatusBar.PerformLayout();
       this.mnsMainMenu.ResumeLayout(false);
       this.mnsMainMenu.PerformLayout();
       this.ResumeLayout(false);
@@ -91,12 +91,12 @@ namespace FontExplorer
 
     }
     #endregion
-    private System.Windows.Forms.StatusStrip statusStrip;
-    private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+    private System.Windows.Forms.ToolStripStatusLabel tsiFontCount;
     private System.Windows.Forms.ToolTip toolTip;
     private System.Windows.Forms.MenuStrip mnsMainMenu;
     private System.Windows.Forms.ToolStripMenuItem mniChooseFont;
     private System.Windows.Forms.ToolStripMenuItem mniManageFonts;
+    internal System.Windows.Forms.StatusStrip ssStatusBar;
   }
 }
 
