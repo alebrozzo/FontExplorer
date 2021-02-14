@@ -1,0 +1,175 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtUserText.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <assembly alias="System.Drawing.Primitives" name="System.Drawing.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtUserText.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>0, 0</value>
+  </data>
+  <assembly alias="System.Private.CoreLib" name="System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e" />
+  <data name="txtUserText.MaxLength" type="System.Int32, System.Private.CoreLib">
+    <value>50</value>
+  </data>
+  <data name="txtUserText.Multiline" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <data name="txtUserText.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>825, 47</value>
+  </data>
+  <data name="txtUserText.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtUserText.Name" xml:space="preserve">
+    <value>txtUserText</value>
+  </data>
+  <data name="&gt;&gt;txtUserText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtUserText.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtUserText.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="flowLabelContainer.AutoScroll" type="System.Boolean, System.Private.CoreLib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+  <data name="lblSample1.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI, 24pt</value>
+  </data>
+  <data name="lblSample1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblSample1.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>3, 0</value>
+  </data>
+  <data name="lblSample1.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>250, 50</value>
+  </data>
+  <data name="lblSample1.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>2</value>
+  </data>
+  <data name="lblSample1.Text" xml:space="preserve">
+    <value>lblSample1</value>
+  </data>
+  <data name="lblSample1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing.Common">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="lblSample1.Visible" type="System.Boolean, System.Private.CoreLib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblSample1.Name" xml:space="preserve">
+    <value>lblSample1</value>
+  </data>
+  <data name="&gt;&gt;lblSample1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSample1.Parent" xml:space="preserve">
+    <value>flowLabelContainer</value>
+  </data>
+  <data name="&gt;&gt;lblSample1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="flowLabelContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="flowLabelContainer.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>0, 47</value>
+  </data>
+  <data name="flowLabelContainer.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>825, 406</value>
+  </data>
+  <data name="flowLabelContainer.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;flowLabelContainer.Name" xml:space="preserve">
+    <value>flowLabelContainer</value>
+  </data>
+  <data name="&gt;&gt;flowLabelContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flowLabelContainer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;flowLabelContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing.Primitives">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>825, 453</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Font Explorer</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmExplorer</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
