@@ -69,7 +69,6 @@ namespace FontExplorer
       this.Name = "frmExplorer";
       this.Tag = "";
       this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-      this.Load += new System.EventHandler(this.frmExplorer_Load);
       this.flowLabelContainer.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
