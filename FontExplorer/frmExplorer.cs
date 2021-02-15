@@ -9,10 +9,12 @@ namespace FontExplorer
     public frmExplorer(List<FontFamily> fontList)
     {
       InitializeComponent();
+      this.SuspendLayout();
       foreach (var fontFamily in fontList)
       {
         this.flowLabelContainer.Controls.Add(this.CreateLabel(fontFamily));
       }
+      this.ResumeLayout(true);
     }
 
     private void txtUserText_TextChanged(object sender, System.EventArgs e)

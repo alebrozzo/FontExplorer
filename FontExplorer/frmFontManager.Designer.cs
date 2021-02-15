@@ -151,7 +151,7 @@ namespace FontExplorer
       // lblAllLetters
       // 
       this.lblAllLetters.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.lblAllLetters.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.lblAllLetters.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
       this.lblAllLetters.Location = new System.Drawing.Point(0, 45);
       this.lblAllLetters.Name = "lblAllLetters";
       this.lblAllLetters.Size = new System.Drawing.Size(904, 50);
