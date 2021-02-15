@@ -21,9 +21,10 @@ namespace FontExplorer
 
     private void txtUserText_TextChanged(object sender, System.EventArgs e)
     {
-      foreach (var label in this.flowLabelContainer.Controls)
+      var useFontName = string.IsNullOrWhiteSpace(this.txtUserText.Text);
+      foreach (Label label in this.flowLabelContainer.Controls)
       {
-        ((Label)label).Text = this.txtUserText.Text;
+        label.Text = useFontName ? label.Font.FontFamily.Name : this.txtUserText.Text;
       }
     }
 
@@ -46,6 +47,7 @@ namespace FontExplorer
         UseMnemonic = false,
         TextAlign = ContentAlignment.MiddleCenter,
         Cursor = Cursors.Hand,
+        Text = family.Name,
       };
       newLabel.Click += new System.EventHandler(this.lblFont_Click);
 
