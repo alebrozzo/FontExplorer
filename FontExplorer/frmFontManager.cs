@@ -17,6 +17,7 @@ namespace FontExplorer
       this.fontFamily = fontFamily;
       this.lblSelectedFont.Font = new Font(fontFamily, this.lblSelectedFont.Font.Size);
       this.lblSelectedFont.Text = fontFamily.Name;
+      this.lblAllLetters.Font = new Font(fontFamily, this.lblAllLetters.Font.Size);
     }
   }
 }

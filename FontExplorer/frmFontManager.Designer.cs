@@ -38,8 +38,11 @@ namespace FontExplorer
       this.tlpTags = new System.Windows.Forms.TableLayoutPanel();
       this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
       this.btnRemoveTag = new System.Windows.Forms.Button();
+      this.lblAllLetters = new System.Windows.Forms.Label();
+      this.pnlHeader = new System.Windows.Forms.Panel();
       this.tlpTags.SuspendLayout();
       this.tlpButtons.SuspendLayout();
+      this.pnlHeader.SuspendLayout();
       this.SuspendLayout();
       // 
       // lblSelectedFont
@@ -59,7 +62,7 @@ namespace FontExplorer
       this.clstCurrentTags.FormattingEnabled = true;
       this.clstCurrentTags.Location = new System.Drawing.Point(499, 18);
       this.clstCurrentTags.Name = "clstCurrentTags";
-      this.clstCurrentTags.Size = new System.Drawing.Size(402, 381);
+      this.clstCurrentTags.Size = new System.Drawing.Size(402, 484);
       this.clstCurrentTags.TabIndex = 1;
       // 
       // lblCurrentTags
@@ -84,13 +87,13 @@ namespace FontExplorer
       this.clstExistingTags.FormattingEnabled = true;
       this.clstExistingTags.Location = new System.Drawing.Point(3, 18);
       this.clstExistingTags.Name = "clstExistingTags";
-      this.clstExistingTags.Size = new System.Drawing.Size(400, 381);
+      this.clstExistingTags.Size = new System.Drawing.Size(400, 484);
       this.clstExistingTags.TabIndex = 3;
       // 
       // btnAddTag
       // 
       this.btnAddTag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnAddTag.Location = new System.Drawing.Point(3, 101);
+      this.btnAddTag.Location = new System.Drawing.Point(3, 127);
       this.btnAddTag.Name = "btnAddTag";
       this.btnAddTag.Size = new System.Drawing.Size(78, 37);
       this.btnAddTag.TabIndex = 5;
@@ -109,13 +112,13 @@ namespace FontExplorer
       this.tlpTags.Controls.Add(this.tlpButtons, 1, 1);
       this.tlpTags.Controls.Add(this.lblCurrentTags, 2, 0);
       this.tlpTags.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tlpTags.Location = new System.Drawing.Point(0, 50);
+      this.tlpTags.Location = new System.Drawing.Point(0, 95);
       this.tlpTags.Name = "tlpTags";
       this.tlpTags.RowCount = 3;
       this.tlpTags.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.tlpTags.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.tlpTags.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-      this.tlpTags.Size = new System.Drawing.Size(904, 452);
+      this.tlpTags.Size = new System.Drawing.Size(904, 555);
       this.tlpTags.TabIndex = 7;
       // 
       // tlpButtons
@@ -132,31 +135,53 @@ namespace FontExplorer
       this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
       this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
       this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-      this.tlpButtons.Size = new System.Drawing.Size(84, 381);
+      this.tlpButtons.Size = new System.Drawing.Size(84, 484);
       this.tlpButtons.TabIndex = 8;
       // 
       // btnRemoveTag
       // 
       this.btnRemoveTag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnRemoveTag.Location = new System.Drawing.Point(3, 241);
+      this.btnRemoveTag.Location = new System.Drawing.Point(3, 319);
       this.btnRemoveTag.Name = "btnRemoveTag";
       this.btnRemoveTag.Size = new System.Drawing.Size(78, 37);
       this.btnRemoveTag.TabIndex = 7;
       this.btnRemoveTag.Text = "< &Remove";
       this.btnRemoveTag.UseVisualStyleBackColor = true;
       // 
+      // lblAllLetters
+      // 
+      this.lblAllLetters.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.lblAllLetters.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+      this.lblAllLetters.Location = new System.Drawing.Point(0, 45);
+      this.lblAllLetters.Name = "lblAllLetters";
+      this.lblAllLetters.Size = new System.Drawing.Size(904, 50);
+      this.lblAllLetters.TabIndex = 8;
+      this.lblAllLetters.Text = "The quick brown fox jumps over the lazy dog";
+      this.lblAllLetters.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // pnlHeader
+      // 
+      this.pnlHeader.Controls.Add(this.lblAllLetters);
+      this.pnlHeader.Controls.Add(this.lblSelectedFont);
+      this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+      this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+      this.pnlHeader.Name = "pnlHeader";
+      this.pnlHeader.Size = new System.Drawing.Size(904, 95);
+      this.pnlHeader.TabIndex = 9;
+      // 
       // frmFontManager
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(904, 502);
+      this.ClientSize = new System.Drawing.Size(904, 650);
       this.Controls.Add(this.tlpTags);
-      this.Controls.Add(this.lblSelectedFont);
-      this.MinimumSize = new System.Drawing.Size(720, 450);
+      this.Controls.Add(this.pnlHeader);
+      this.MinimumSize = new System.Drawing.Size(920, 450);
       this.Name = "frmFontManager";
-      this.Text = "frmFontManager";
+      this.Text = "Font Manager";
       this.tlpTags.ResumeLayout(false);
       this.tlpButtons.ResumeLayout(false);
+      this.pnlHeader.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -172,5 +197,7 @@ namespace FontExplorer
     private System.Windows.Forms.TableLayoutPanel tlpTags;
     private System.Windows.Forms.Button btnRemoveTag;
     private System.Windows.Forms.TableLayoutPanel tlpButtons;
+    private System.Windows.Forms.Label lblAllLetters;
+    private System.Windows.Forms.Panel pnlHeader;
   }
 }
