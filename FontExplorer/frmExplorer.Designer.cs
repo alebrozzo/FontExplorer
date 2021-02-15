@@ -37,31 +37,31 @@ namespace FontExplorer
       this.ttFontName = new System.Windows.Forms.ToolTip(this.components);
       this.flowLabelContainer.SuspendLayout();
       this.SuspendLayout();
-      // 
+      //
       // txtUserText
-      // 
+      //
       this.txtUserText.AcceptsReturn = true;
       this.txtUserText.AllowDrop = true;
       resources.ApplyResources(this.txtUserText, "txtUserText");
       this.txtUserText.Name = "txtUserText";
       this.txtUserText.TextChanged += new System.EventHandler(this.txtUserText_TextChanged);
-      // 
+      //
       // flowLabelContainer
-      // 
+      //
       resources.ApplyResources(this.flowLabelContainer, "flowLabelContainer");
       this.flowLabelContainer.Controls.Add(this.lblSample);
       this.flowLabelContainer.Name = "flowLabelContainer";
-      // 
+      //
       // lblSample
-      // 
+      //
       this.lblSample.AutoEllipsis = true;
       resources.ApplyResources(this.lblSample, "lblSample");
       this.lblSample.Name = "lblSample";
       this.ttFontName.SetToolTip(this.lblSample, resources.GetString("lblSample.ToolTip"));
       this.lblSample.UseMnemonic = false;
-      // 
+      //
       // frmExplorer
-      // 
+      //
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.Controls.Add(this.flowLabelContainer);
@@ -84,4 +84,3 @@ namespace FontExplorer
     private System.Windows.Forms.ToolTip ttFontName;
   }
 }
-

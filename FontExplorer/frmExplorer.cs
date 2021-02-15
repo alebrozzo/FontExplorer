@@ -41,11 +41,14 @@ namespace FontExplorer
       {
         Font = new Font(family, 24),
         Size = new Size(250, 75),
-        Name = "lblSample_" + family,
+        Name = "lblFont_" + family,
         AutoEllipsis = true,
         UseMnemonic = false,
         TextAlign = ContentAlignment.MiddleCenter,
+        Cursor = Cursors.Hand,
       };
+      newLabel.Click += new System.EventHandler(this.lblFont_Click);
+
       this.ttFontName.SetToolTip(newLabel, family.Name);
       return newLabel;
     }
@@ -53,6 +56,14 @@ namespace FontExplorer
     private void frmExplorer_Load(object sender, System.EventArgs e)
     {
       ((mdiContainer)this.MdiParent).ssStatusBar.Items["tsiFontCount"].Text = $"{this.fontList.Count} fonts";
+    }
+
+    private void lblFont_Click(object sender, System.EventArgs e)
+    {
+      var frmFontManagerInstance = new frmFontManager();
+      frmFontManagerInstance.SetSelectedFont(((Label)sender).Font.FontFamily);
+      frmFontManagerInstance.MdiParent = this.MdiParent;
+      frmFontManagerInstance.Show();
     }
   }
 }

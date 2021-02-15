@@ -7,6 +7,9 @@
     <Compile Update="frmExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmFontManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="mdiContainer.cs">
       <SubType>Form</SubType>
     </Compile>

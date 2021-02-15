@@ -57,10 +57,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtUserText.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
   <assembly alias="System.Drawing.Primitives" name="System.Drawing.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="txtUserText.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>0, 0</value>
@@ -73,7 +69,7 @@
     <value>True</value>
   </data>
   <data name="txtUserText.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>825, 47</value>
+    <value>250, 47</value>
   </data>
   <data name="txtUserText.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>0</value>
@@ -90,17 +86,30 @@
   <data name="&gt;&gt;txtUserText.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="flowLabelContainer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <data name="flowLabelContainer.AutoScroll" type="System.Boolean, System.Private.CoreLib">
     <value>True</value>
   </data>
-  <data name="flowLabelContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;lblSample.Name" xml:space="preserve">
+    <value>lblSample</value>
+  </data>
+  <data name="&gt;&gt;lblSample.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSample.Parent" xml:space="preserve">
+    <value>flowLabelContainer</value>
+  </data>
+  <data name="&gt;&gt;lblSample.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="flowLabelContainer.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>0, 47</value>
   </data>
   <data name="flowLabelContainer.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>825, 406</value>
+    <value>847, 478</value>
   </data>
   <data name="flowLabelContainer.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>2</value>
@@ -164,7 +173,7 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>825, 453</value>
+    <value>847, 525</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Font Explorer</value>
