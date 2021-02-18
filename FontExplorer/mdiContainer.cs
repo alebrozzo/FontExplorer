@@ -25,8 +25,8 @@ namespace FontExplorer
       {
         var initDto = new InstalledFontsDto()
         {
-          fonts = new List<FontDto>(0),
-          tags = new List<string>(0),
+          Fonts = new List<FontDto>(0),
+          Tags = new SortedSet<string>() { "temp3", "temp2", "temp3", "temp1", "temp1" },
         };
         var initDb = JsonSerializer.Serialize(initDto);
         File.WriteAllText(FontDbFileName, initDb);
