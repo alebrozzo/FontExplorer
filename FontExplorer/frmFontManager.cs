@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using FontExplorer.Dtos;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace FontExplorer
@@ -6,10 +7,12 @@ namespace FontExplorer
   public partial class frmFontManager : Form
   {
     private FontFamily fontFamily;
+    private InstalledFontsDto installedFontsDto;
 
-    public frmFontManager()
+    public frmFontManager(InstalledFontsDto installedFontsDto)
     {
       InitializeComponent();
+      this.installedFontsDto = installedFontsDto;
     }
 
     public void SetSelectedFont(FontFamily fontFamily)

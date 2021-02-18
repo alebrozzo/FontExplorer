@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using FontExplorer.Dtos;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,10 +7,13 @@ namespace FontExplorer
 {
   public partial class frmExplorer : Form
   {
-    public frmExplorer(List<FontFamily> fontList)
+    private InstalledFontsDto installedFontsDto;
+
+    public frmExplorer(List<FontFamily> fontList, InstalledFontsDto installedFontsDto)
     {
       InitializeComponent();
       this.SuspendLayout();
+      this.installedFontsDto = installedFontsDto;
       foreach (var fontFamily in fontList)
       {
         this.flowLabelContainer.Controls.Add(this.CreateLabel(fontFamily));
@@ -49,7 +53,7 @@ namespace FontExplorer
 
     private void lblFont_Click(object sender, System.EventArgs e)
     {
-      var frmFontManagerInstance = new frmFontManager();
+      var frmFontManagerInstance = new frmFontManager(this.installedFontsDto);
       frmFontManagerInstance.SetSelectedFont(((Label)sender).Font.FontFamily);
       frmFontManagerInstance.MdiParent = this.MdiParent;
       frmFontManagerInstance.Show();
