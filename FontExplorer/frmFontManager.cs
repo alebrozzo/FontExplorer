@@ -10,6 +10,7 @@ namespace FontExplorer
   {
     private FontFamily fontFamily;
     private InstalledFontsDto installedFontsDto;
+    private FontDto selectedFontDto;
 
     public frmFontManager(InstalledFontsDto installedFontsDto)
     {
@@ -23,19 +24,59 @@ namespace FontExplorer
       this.lblSelectedFont.Font = new Font(fontFamily, this.lblSelectedFont.Font.Size);
       this.lblSelectedFont.Text = fontFamily.Name;
       this.lblAllLetters.Font = new Font(fontFamily, this.lblAllLetters.Font.Size);
-      FontDto selectedFontDto = this.installedFontsDto.Fonts.SingleOrDefault(f => f.Family == fontFamily.Name);
-      if (selectedFontDto == null)
+      this.selectedFontDto = this.installedFontsDto.Fonts.SingleOrDefault(f => f.Family == fontFamily.Name);
+      if (this.selectedFontDto == null)
       {
-        selectedFontDto = new FontDto()
+        this.selectedFontDto = new FontDto()
         {
           Family = fontFamily.Name,
           Tags = new List<string>(),
         };
       }
 
-      var nonUsedTags = this.installedFontsDto.Tags.Except(selectedFontDto.Tags);
-      this.clstCurrentTags.Items.AddRange(selectedFontDto.Tags.ToArray());
+      var nonUsedTags = this.installedFontsDto.Tags.Except(this.selectedFontDto.Tags);
+      this.clstCurrentTags.Items.AddRange(this.selectedFontDto.Tags.ToArray());
       this.clstExistingTags.Items.AddRange(nonUsedTags.ToArray());
+    }
+
+    private void btnAddTag_Click(object sender, System.EventArgs e)
+    {
+      this.SuspendLayout();
+      if (this.clstExistingTags.CheckedItems.Count > 0)
+      {
+        var existing = new SortedSet<string>(this.clstExistingTags.Items.OfType<string>());
+        var current = new SortedSet<string>(this.clstCurrentTags.Items.OfType<string>());
+        foreach (var item in this.clstExistingTags.CheckedItems.OfType<string>())
+        {
+          existing.Remove(item);
+          current.Add(item);
+        }
+        this.clstExistingTags.Items.Clear();
+        this.clstExistingTags.Items.AddRange(existing.ToArray());
+        this.clstCurrentTags.Items.Clear();
+        this.clstCurrentTags.Items.AddRange(current.ToArray());
+      }
+      this.ResumeLayout(true);
+    }
+
+    private void btnRemoveTag_Click(object sender, System.EventArgs e)
+    {
+      this.SuspendLayout();
+      if (this.clstCurrentTags.CheckedItems.Count > 0)
+      {
+        var current = new SortedSet<string>(this.clstCurrentTags.Items.OfType<string>());
+        var existing = new SortedSet<string>(this.clstExistingTags.Items.OfType<string>());
+        foreach (var item in this.clstCurrentTags.CheckedItems.OfType<string>())
+        {
+          current.Remove(item);
+          existing.Add(item);
+        }
+        this.clstCurrentTags.Items.Clear();
+        this.clstCurrentTags.Items.AddRange(current.ToArray());
+        this.clstExistingTags.Items.Clear();
+        this.clstExistingTags.Items.AddRange(existing.ToArray());
+      }
+      this.ResumeLayout(true);
     }
   }
 }

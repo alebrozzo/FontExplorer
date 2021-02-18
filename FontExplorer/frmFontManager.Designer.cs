@@ -58,6 +58,7 @@ namespace FontExplorer
       // 
       // clstCurrentTags
       // 
+      this.clstCurrentTags.CheckOnClick = true;
       this.clstCurrentTags.Dock = System.Windows.Forms.DockStyle.Fill;
       this.clstCurrentTags.FormattingEnabled = true;
       this.clstCurrentTags.Location = new System.Drawing.Point(499, 18);
@@ -83,6 +84,7 @@ namespace FontExplorer
       // 
       // clstExistingTags
       // 
+      this.clstExistingTags.CheckOnClick = true;
       this.clstExistingTags.Dock = System.Windows.Forms.DockStyle.Fill;
       this.clstExistingTags.FormattingEnabled = true;
       this.clstExistingTags.Location = new System.Drawing.Point(3, 18);
@@ -99,6 +101,7 @@ namespace FontExplorer
       this.btnAddTag.TabIndex = 5;
       this.btnAddTag.Text = "&Add >";
       this.btnAddTag.UseVisualStyleBackColor = true;
+      this.btnAddTag.Click += new System.EventHandler(this.btnAddTag_Click);
       // 
       // tlpTags
       // 
@@ -147,6 +150,7 @@ namespace FontExplorer
       this.btnRemoveTag.TabIndex = 7;
       this.btnRemoveTag.Text = "< &Remove";
       this.btnRemoveTag.UseVisualStyleBackColor = true;
+      this.btnRemoveTag.Click += new System.EventHandler(this.btnRemoveTag_Click);
       // 
       // lblAllLetters
       // 
