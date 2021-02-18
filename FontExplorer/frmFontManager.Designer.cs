@@ -36,11 +36,15 @@ namespace FontExplorer
       this.clstExistingTags = new System.Windows.Forms.CheckedListBox();
       this.btnAddTag = new System.Windows.Forms.Button();
       this.tlpTags = new System.Windows.Forms.TableLayoutPanel();
+      this.flpNewTag = new System.Windows.Forms.FlowLayoutPanel();
+      this.lblAddNewTag = new System.Windows.Forms.Label();
+      this.txtNewTag = new System.Windows.Forms.TextBox();
       this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
       this.btnRemoveTag = new System.Windows.Forms.Button();
       this.lblAllLetters = new System.Windows.Forms.Label();
       this.pnlHeader = new System.Windows.Forms.Panel();
       this.tlpTags.SuspendLayout();
+      this.flpNewTag.SuspendLayout();
       this.tlpButtons.SuspendLayout();
       this.pnlHeader.SuspendLayout();
       this.SuspendLayout();
@@ -61,14 +65,14 @@ namespace FontExplorer
       this.clstCurrentTags.CheckOnClick = true;
       this.clstCurrentTags.Dock = System.Windows.Forms.DockStyle.Fill;
       this.clstCurrentTags.FormattingEnabled = true;
-      this.clstCurrentTags.Location = new System.Drawing.Point(499, 18);
+      this.clstCurrentTags.Location = new System.Drawing.Point(499, 68);
       this.clstCurrentTags.Name = "clstCurrentTags";
-      this.clstCurrentTags.Size = new System.Drawing.Size(402, 484);
+      this.clstCurrentTags.Size = new System.Drawing.Size(402, 464);
       this.clstCurrentTags.TabIndex = 1;
       // 
       // lblCurrentTags
       // 
-      this.lblCurrentTags.Location = new System.Drawing.Point(499, 0);
+      this.lblCurrentTags.Location = new System.Drawing.Point(499, 50);
       this.lblCurrentTags.Name = "lblCurrentTags";
       this.lblCurrentTags.Size = new System.Drawing.Size(178, 15);
       this.lblCurrentTags.TabIndex = 2;
@@ -76,7 +80,7 @@ namespace FontExplorer
       // 
       // lblExistingTags
       // 
-      this.lblExistingTags.Location = new System.Drawing.Point(3, 0);
+      this.lblExistingTags.Location = new System.Drawing.Point(3, 50);
       this.lblExistingTags.Name = "lblExistingTags";
       this.lblExistingTags.Size = new System.Drawing.Size(178, 15);
       this.lblExistingTags.TabIndex = 4;
@@ -87,15 +91,15 @@ namespace FontExplorer
       this.clstExistingTags.CheckOnClick = true;
       this.clstExistingTags.Dock = System.Windows.Forms.DockStyle.Fill;
       this.clstExistingTags.FormattingEnabled = true;
-      this.clstExistingTags.Location = new System.Drawing.Point(3, 18);
+      this.clstExistingTags.Location = new System.Drawing.Point(3, 68);
       this.clstExistingTags.Name = "clstExistingTags";
-      this.clstExistingTags.Size = new System.Drawing.Size(400, 484);
+      this.clstExistingTags.Size = new System.Drawing.Size(400, 464);
       this.clstExistingTags.TabIndex = 3;
       // 
       // btnAddTag
       // 
       this.btnAddTag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnAddTag.Location = new System.Drawing.Point(3, 127);
+      this.btnAddTag.Location = new System.Drawing.Point(3, 122);
       this.btnAddTag.Name = "btnAddTag";
       this.btnAddTag.Size = new System.Drawing.Size(78, 37);
       this.btnAddTag.TabIndex = 5;
@@ -109,20 +113,50 @@ namespace FontExplorer
       this.tlpTags.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
       this.tlpTags.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
       this.tlpTags.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
-      this.tlpTags.Controls.Add(this.lblExistingTags, 0, 0);
-      this.tlpTags.Controls.Add(this.clstExistingTags, 0, 1);
-      this.tlpTags.Controls.Add(this.clstCurrentTags, 2, 1);
-      this.tlpTags.Controls.Add(this.tlpButtons, 1, 1);
-      this.tlpTags.Controls.Add(this.lblCurrentTags, 2, 0);
+      this.tlpTags.Controls.Add(this.flpNewTag, 2, 0);
+      this.tlpTags.Controls.Add(this.clstExistingTags, 0, 2);
+      this.tlpTags.Controls.Add(this.clstCurrentTags, 2, 2);
+      this.tlpTags.Controls.Add(this.tlpButtons, 1, 2);
+      this.tlpTags.Controls.Add(this.lblExistingTags, 0, 1);
+      this.tlpTags.Controls.Add(this.lblCurrentTags, 2, 1);
       this.tlpTags.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tlpTags.Location = new System.Drawing.Point(0, 95);
       this.tlpTags.Name = "tlpTags";
-      this.tlpTags.RowCount = 3;
+      this.tlpTags.RowCount = 4;
+      this.tlpTags.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
       this.tlpTags.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.tlpTags.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.tlpTags.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+      this.tlpTags.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
       this.tlpTags.Size = new System.Drawing.Size(904, 555);
       this.tlpTags.TabIndex = 7;
+      // 
+      // flpNewTag
+      // 
+      this.flpNewTag.Controls.Add(this.lblAddNewTag);
+      this.flpNewTag.Controls.Add(this.txtNewTag);
+      this.flpNewTag.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.flpNewTag.Location = new System.Drawing.Point(499, 3);
+      this.flpNewTag.Name = "flpNewTag";
+      this.flpNewTag.Size = new System.Drawing.Size(402, 44);
+      this.flpNewTag.TabIndex = 9;
+      // 
+      // lblAddNewTag
+      // 
+      this.lblAddNewTag.Location = new System.Drawing.Point(3, 0);
+      this.lblAddNewTag.Name = "lblAddNewTag";
+      this.lblAddNewTag.Size = new System.Drawing.Size(79, 23);
+      this.lblAddNewTag.TabIndex = 10;
+      this.lblAddNewTag.Text = "Add new tag:";
+      this.lblAddNewTag.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+      // 
+      // txtNewTag
+      // 
+      this.txtNewTag.Location = new System.Drawing.Point(88, 3);
+      this.txtNewTag.Name = "txtNewTag";
+      this.txtNewTag.PlaceholderText = "Enter to add";
+      this.txtNewTag.Size = new System.Drawing.Size(100, 23);
+      this.txtNewTag.TabIndex = 9;
+      this.txtNewTag.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNewTag_KeyUp);
       // 
       // tlpButtons
       // 
@@ -131,20 +165,20 @@ namespace FontExplorer
       this.tlpButtons.Controls.Add(this.btnAddTag, 0, 1);
       this.tlpButtons.Controls.Add(this.btnRemoveTag, 0, 2);
       this.tlpButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tlpButtons.Location = new System.Drawing.Point(409, 18);
+      this.tlpButtons.Location = new System.Drawing.Point(409, 68);
       this.tlpButtons.Name = "tlpButtons";
       this.tlpButtons.RowCount = 4;
       this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
       this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
       this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
       this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-      this.tlpButtons.Size = new System.Drawing.Size(84, 484);
+      this.tlpButtons.Size = new System.Drawing.Size(84, 464);
       this.tlpButtons.TabIndex = 8;
       // 
       // btnRemoveTag
       // 
       this.btnRemoveTag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnRemoveTag.Location = new System.Drawing.Point(3, 319);
+      this.btnRemoveTag.Location = new System.Drawing.Point(3, 304);
       this.btnRemoveTag.Name = "btnRemoveTag";
       this.btnRemoveTag.Size = new System.Drawing.Size(78, 37);
       this.btnRemoveTag.TabIndex = 7;
@@ -184,6 +218,8 @@ namespace FontExplorer
       this.Name = "frmFontManager";
       this.Text = "Font Manager";
       this.tlpTags.ResumeLayout(false);
+      this.flpNewTag.ResumeLayout(false);
+      this.flpNewTag.PerformLayout();
       this.tlpButtons.ResumeLayout(false);
       this.pnlHeader.ResumeLayout(false);
       this.ResumeLayout(false);
@@ -203,5 +239,8 @@ namespace FontExplorer
     private System.Windows.Forms.TableLayoutPanel tlpButtons;
     private System.Windows.Forms.Label lblAllLetters;
     private System.Windows.Forms.Panel pnlHeader;
+    private System.Windows.Forms.TextBox txtNewTag;
+    private System.Windows.Forms.FlowLayoutPanel flpNewTag;
+    private System.Windows.Forms.Label lblAddNewTag;
   }
 }

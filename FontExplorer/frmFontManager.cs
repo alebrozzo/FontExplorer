@@ -64,9 +64,9 @@ namespace FontExplorer
 
     private void btnRemoveTag_Click(object sender, System.EventArgs e)
     {
-      this.SuspendLayout();
       if (this.clstCurrentTags.CheckedItems.Count > 0)
       {
+        this.SuspendLayout();
         var current = new SortedSet<string>(this.clstCurrentTags.Items.OfType<string>());
         var existing = new SortedSet<string>(this.clstExistingTags.Items.OfType<string>());
         foreach (var item in this.clstCurrentTags.CheckedItems.OfType<string>())
@@ -80,8 +80,26 @@ namespace FontExplorer
         this.clstExistingTags.Items.Clear();
         this.clstExistingTags.Items.AddRange(existing.ToArray());
         this.installedFontsDto.Save();
+        this.ResumeLayout(true);
       }
-      this.ResumeLayout(true);
+    }
+
+    private void txtNewTag_KeyUp(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode == Keys.Enter)
+      {
+        this.SuspendLayout();
+        var newTag = this.txtNewTag.Text.Trim();
+        var current = new SortedSet<string>(this.clstCurrentTags.Items.OfType<string>());
+        current.Add(newTag);
+        this.clstCurrentTags.Items.Clear();
+        this.clstCurrentTags.Items.AddRange(current.ToArray());
+        this.selectedFontDto.Tags.Add(newTag);
+        this.installedFontsDto.Tags.Add(newTag);
+        this.installedFontsDto.Save();
+        this.txtNewTag.Text = string.Empty;
+        this.ResumeLayout(true);
+      }
     }
   }
 }
