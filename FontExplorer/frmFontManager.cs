@@ -32,6 +32,7 @@ namespace FontExplorer
           Family = fontFamily.Name,
           Tags = new List<string>(),
         };
+        this.installedFontsDto.Fonts.Add(this.selectedFontDto);
       }
 
       var nonUsedTags = this.installedFontsDto.Tags.Except(this.selectedFontDto.Tags);
@@ -50,11 +51,13 @@ namespace FontExplorer
         {
           existing.Remove(item);
           current.Add(item);
+          this.selectedFontDto.Tags.Add(item);
         }
         this.clstExistingTags.Items.Clear();
         this.clstExistingTags.Items.AddRange(existing.ToArray());
         this.clstCurrentTags.Items.Clear();
         this.clstCurrentTags.Items.AddRange(current.ToArray());
+        this.installedFontsDto.Save();
       }
       this.ResumeLayout(true);
     }
@@ -70,11 +73,13 @@ namespace FontExplorer
         {
           current.Remove(item);
           existing.Add(item);
+          this.selectedFontDto.Tags.Remove(item);
         }
         this.clstCurrentTags.Items.Clear();
         this.clstCurrentTags.Items.AddRange(current.ToArray());
         this.clstExistingTags.Items.Clear();
         this.clstExistingTags.Items.AddRange(existing.ToArray());
+        this.installedFontsDto.Save();
       }
       this.ResumeLayout(true);
     }
