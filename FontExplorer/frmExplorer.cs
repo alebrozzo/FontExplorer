@@ -19,11 +19,13 @@ namespace FontExplorer
 
     private void txtUserText_TextChanged(object sender, System.EventArgs e)
     {
+      this.SuspendLayout();
       var useFontName = string.IsNullOrWhiteSpace(this.txtUserText.Text);
       foreach (Label label in this.flowLabelContainer.Controls)
       {
         label.Text = useFontName ? label.Font.FontFamily.Name : this.txtUserText.Text;
       }
+      this.ResumeLayout(true);
     }
 
     private Label CreateLabel(FontFamily family)
