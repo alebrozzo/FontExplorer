@@ -1,4 +1,5 @@
 ﻿using FontExplorer.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Text;
@@ -11,7 +12,6 @@ namespace FontExplorer
 {
   public partial class mdiContainer : Form
   {
-    private const string FontDbFileName = "FontDb.json";
     private readonly List<FontFamily> fontList;
     private InstalledFontsDto installedFontsDto;
 
@@ -21,19 +21,7 @@ namespace FontExplorer
       this.Cursor = Cursors.WaitCursor;
       this.fontList = GetFontList();
       this.ssStatusBar.Items["tsiFontCount"].Text = $"{this.fontList.Count} fonts";
-      if (!File.Exists(FontDbFileName))
-      {
-        var initDto = new InstalledFontsDto()
-        {
-          Fonts = new List<FontDto>(0),
-          Tags = new SortedSet<string>() { "temp3", "temp2", "temp3", "temp1", "temp1" },
-        };
-        var initDb = JsonSerializer.Serialize(initDto);
-        File.WriteAllText(FontDbFileName, initDb);
-      }
-
-      string jsonDb = File.ReadAllText(FontDbFileName);
-      this.installedFontsDto = JsonSerializer.Deserialize<InstalledFontsDto>(jsonDb);
+      this.installedFontsDto = InstalledFontsDto.Load();
       this.Cursor = Cursors.Default;
     }
 
