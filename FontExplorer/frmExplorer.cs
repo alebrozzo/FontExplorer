@@ -77,12 +77,22 @@ namespace FontExplorer
 
     private void ApplyFilters(IEnumerable<string> selectedTags)
     {
-      this.SuspendLayout();
       var fontNameList = this.installedFontsDto.Fonts
         .Where(f => f.Tags.Any(t => selectedTags.Contains(t)))
         .Select(f => f.Family);
-      this.CreateFontLabels(fontNameList);
-      this.ResumeLayout(true);
+      this.FilterFontLabels(fontNameList);
+    }
+
+    private void FilterFontLabels(IEnumerable<string> fontNameList)
+    {
+      this.flpLabelContainer.SuspendLayout();
+      var fontList = fontNameList.ToList();
+      var forceVisible = this.SelectedTags().Count() == 0;
+      foreach (Label label in this.flpLabelContainer.Controls)
+      {
+        label.Visible = forceVisible || fontList.Contains(label.Text);
+      }
+      this.flpLabelContainer.ResumeLayout(true);
     }
 
     private IEnumerable<string> SelectedTags()
@@ -130,14 +140,7 @@ namespace FontExplorer
       }
 
       var selectedTags = this.SelectedTags();
-      if (selectedTags.Any())
-      {
-        this.ApplyFilters(selectedTags);
-      }
-      else
-      {
-        this.CreateFontLabels(this.fontList.Select(ff => ff.Name));
-      }
+      this.ApplyFilters(selectedTags);
     }
   }
 }
