@@ -154,11 +154,17 @@
   <data name="&gt;&gt;flpLabelContainer.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="flpTagContainer.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="flpTagContainer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="flpTagContainer.AutoScroll" type="System.Boolean, System.Private.CoreLib">
     <value>True</value>
   </data>
   <data name="lblTagSample.AutoSize" type="System.Boolean, System.Private.CoreLib">
     <value>True</value>
+  </data>
+  <data name="lblTagSample.Font" type="System.Drawing.Font, System.Drawing.Common">
+    <value>Segoe UI, 9.75pt</value>
   </data>
   <data name="lblTagSample.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>3, 0</value>
@@ -168,7 +174,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="lblTagSample.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>81, 19</value>
+    <value>90, 21</value>
   </data>
   <data name="lblTagSample.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>0</value>

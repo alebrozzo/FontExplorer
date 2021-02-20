@@ -69,16 +69,23 @@ namespace FontExplorer
     {
       var newLabel = new Label()
       {
+        Font = this.lblTagSample.Font,
         Name = "lblTag_" + tagName,
         UseMnemonic = false,
         TextAlign = ContentAlignment.MiddleCenter,
         Cursor = Cursors.Hand,
+        BackColor = Color.Transparent,
+        ForeColor = Color.Black,
         Text = tagName,
       };
-      //newLabel.Click += new System.EventHandler(this.lblFont_Click);
+      newLabel.Click += new System.EventHandler(this.lblTag_Click);
       return newLabel;
     }
 
+    private void ApplyFilters()
+    {
+      
+    }
 
     private void lblFont_Click(object sender, System.EventArgs e)
     {
@@ -86,6 +93,24 @@ namespace FontExplorer
       frmFontManagerInstance.SetSelectedFont(((Label)sender).Font.FontFamily);
       frmFontManagerInstance.MdiParent = this.MdiParent;
       frmFontManagerInstance.Show();
+    }
+
+    private void lblTag_Click(object sender, System.EventArgs e)
+    {
+      var clickedLabel = (Label)sender;
+      bool isSelecting = clickedLabel.BackColor == Color.Transparent;
+      if (isSelecting)
+      {
+        clickedLabel.BackColor = Color.CornflowerBlue;
+        clickedLabel.ForeColor = Color.White;
+      }
+      else
+      {
+        clickedLabel.BackColor = Color.Transparent;
+        clickedLabel.ForeColor = Color.Black;
+      }
+
+      this.ApplyFilters();
     }
   }
 }
