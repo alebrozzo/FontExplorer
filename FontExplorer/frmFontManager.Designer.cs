@@ -154,8 +154,8 @@ namespace FontExplorer
       //
       this.txtNewTag.Location = new System.Drawing.Point(88, 3);
       this.txtNewTag.Name = "txtNewTag";
-      this.txtNewTag.PlaceholderText = "Enter to add";
-      this.txtNewTag.Size = new System.Drawing.Size(100, 23);
+      this.txtNewTag.PlaceholderText = "Enter to add a new tag";
+      this.txtNewTag.Size = new System.Drawing.Size(145, 23);
       this.txtNewTag.TabIndex = 9;
       this.txtNewTag.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNewTag_KeyUp);
       //
