@@ -108,13 +108,13 @@ namespace FontExplorer
 
     private void txtUserText_TextChanged(object sender, System.EventArgs e)
     {
-      this.SuspendLayout();
+      this.flpLabelContainer.SuspendLayout();
       var useFontName = string.IsNullOrWhiteSpace(this.txtUserText.Text);
       foreach (Label label in this.flpLabelContainer.Controls)
       {
         label.Text = useFontName ? label.Font.FontFamily.Name : this.txtUserText.Text;
       }
-      this.ResumeLayout(true);
+      this.flpLabelContainer.ResumeLayout(true);
     }
 
     private void lblFont_Click(object sender, System.EventArgs e)
