@@ -32,6 +32,7 @@ namespace FontExplorer.Dtos
 
     public void Save()
     {
+      // TODO: do this async
       string text = JsonSerializer.Serialize(this);
       File.WriteAllText(FontDbFileName, text);
     }
@@ -41,6 +42,6 @@ namespace FontExplorer.Dtos
   {
     public string Family { get; set; }
 
-    public List<string> Tags { get; set; }
+    public SortedSet<string> Tags { get; set; }
   }
 }

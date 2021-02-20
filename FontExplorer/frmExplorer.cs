@@ -14,10 +14,8 @@ namespace FontExplorer
       InitializeComponent();
       this.SuspendLayout();
       this.installedFontsDto = installedFontsDto;
-      foreach (var fontFamily in fontList)
-      {
-        this.flowLabelContainer.Controls.Add(this.CreateLabel(fontFamily));
-      }
+      this.CreateFontLabels(fontList);
+      this.CreateTagLabels(this.installedFontsDto.Tags);
       this.ResumeLayout(true);
     }
 
@@ -25,14 +23,22 @@ namespace FontExplorer
     {
       this.SuspendLayout();
       var useFontName = string.IsNullOrWhiteSpace(this.txtUserText.Text);
-      foreach (Label label in this.flowLabelContainer.Controls)
+      foreach (Label label in this.flpLabelContainer.Controls)
       {
         label.Text = useFontName ? label.Font.FontFamily.Name : this.txtUserText.Text;
       }
       this.ResumeLayout(true);
     }
 
-    private Label CreateLabel(FontFamily family)
+    private void CreateFontLabels(IList<FontFamily> fontList)
+    {
+      foreach (var fontFamily in fontList)
+      {
+        this.flpLabelContainer.Controls.Add(this.CreateFontLabel(fontFamily));
+      }
+    }
+
+    private Label CreateFontLabel(FontFamily family)
     {
       var newLabel = new Label()
       {
@@ -50,6 +56,29 @@ namespace FontExplorer
       this.ttFontName.SetToolTip(newLabel, family.Name);
       return newLabel;
     }
+
+    private void CreateTagLabels(ISet<string> tagList)
+    {
+      foreach (var tagName in tagList)
+      {
+        this.flpTagContainer.Controls.Add(this.CreateTagLabel(tagName));
+      }
+    }
+
+    private Label CreateTagLabel(string tagName)
+    {
+      var newLabel = new Label()
+      {
+        Name = "lblTag_" + tagName,
+        UseMnemonic = false,
+        TextAlign = ContentAlignment.MiddleCenter,
+        Cursor = Cursors.Hand,
+        Text = tagName,
+      };
+      //newLabel.Click += new System.EventHandler(this.lblFont_Click);
+      return newLabel;
+    }
+
 
     private void lblFont_Click(object sender, System.EventArgs e)
     {

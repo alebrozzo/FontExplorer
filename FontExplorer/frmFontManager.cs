@@ -30,7 +30,7 @@ namespace FontExplorer
         this.selectedFontDto = new FontDto()
         {
           Family = fontFamily.Name,
-          Tags = new List<string>(),
+          Tags = new SortedSet<string>(),
         };
         this.installedFontsDto.Fonts.Add(this.selectedFontDto);
       }
