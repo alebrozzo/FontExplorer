@@ -90,7 +90,7 @@ namespace FontExplorer
       var forceVisible = this.SelectedTags().Count() == 0;
       foreach (Label label in this.flpLabelContainer.Controls)
       {
-        label.Visible = forceVisible || fontList.Contains(label.Text);
+        label.Visible = forceVisible || fontList.Contains(label.Font.FontFamily.Name);
       }
       this.flpLabelContainer.ResumeLayout(true);
     }
