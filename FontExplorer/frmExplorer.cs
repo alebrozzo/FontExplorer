@@ -1,59 +1,52 @@
 ﻿using FontExplorer.Dtos;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace FontExplorer
 {
   public partial class frmExplorer : Form
   {
+    private readonly IList<FontFamily> fontList;
     private InstalledFontsDto installedFontsDto;
 
-    public frmExplorer(List<FontFamily> fontList, InstalledFontsDto installedFontsDto)
+    public frmExplorer(IList<FontFamily> fontList, InstalledFontsDto installedFontsDto)
     {
       InitializeComponent();
       this.SuspendLayout();
+      this.fontList = fontList;
       this.installedFontsDto = installedFontsDto;
-      this.CreateFontLabels(fontList);
+      this.CreateFontLabels(fontList.Select(ff => ff.Name));
       this.CreateTagLabels(this.installedFontsDto.Tags);
       this.ResumeLayout(true);
     }
 
-    private void txtUserText_TextChanged(object sender, System.EventArgs e)
+    private void CreateFontLabels(IEnumerable<string> fontList)
     {
-      this.SuspendLayout();
-      var useFontName = string.IsNullOrWhiteSpace(this.txtUserText.Text);
-      foreach (Label label in this.flpLabelContainer.Controls)
-      {
-        label.Text = useFontName ? label.Font.FontFamily.Name : this.txtUserText.Text;
-      }
-      this.ResumeLayout(true);
-    }
-
-    private void CreateFontLabels(IList<FontFamily> fontList)
-    {
+      this.flpLabelContainer.Controls.Clear();
       foreach (var fontFamily in fontList)
       {
         this.flpLabelContainer.Controls.Add(this.CreateFontLabel(fontFamily));
       }
     }
 
-    private Label CreateFontLabel(FontFamily family)
+    private Label CreateFontLabel(string familyName)
     {
       var newLabel = new Label()
       {
-        Font = new Font(family, 24),
+        Font = new Font(familyName, 24),
         Size = new Size(250, 75),
-        Name = "lblFont_" + family,
+        Name = "lblFont_" + familyName,
         AutoEllipsis = true,
         UseMnemonic = false,
         TextAlign = ContentAlignment.MiddleCenter,
         Cursor = Cursors.Hand,
-        Text = family.Name,
+        Text = familyName,
       };
       newLabel.Click += new System.EventHandler(this.lblFont_Click);
 
-      this.ttFontName.SetToolTip(newLabel, family.Name);
+      this.ttFontName.SetToolTip(newLabel, familyName);
       return newLabel;
     }
 
@@ -69,7 +62,7 @@ namespace FontExplorer
     {
       var newLabel = new Label()
       {
-        Font = this.lblTagSample.Font,
+        Font = this.lblTagHidden.Font,
         Name = "lblTag_" + tagName,
         UseMnemonic = false,
         TextAlign = ContentAlignment.MiddleCenter,
@@ -82,9 +75,36 @@ namespace FontExplorer
       return newLabel;
     }
 
-    private void ApplyFilters()
+    private void ApplyFilters(IEnumerable<string> selectedTags)
     {
-      
+      this.SuspendLayout();
+      var fontNameList = this.installedFontsDto.Fonts
+        .Where(f => f.Tags.Any(t => selectedTags.Contains(t)))
+        .Select(f => f.Family);
+      this.CreateFontLabels(fontNameList);
+      this.ResumeLayout(true);
+    }
+
+    private IEnumerable<string> SelectedTags()
+    {
+      var labelControls = this.flpTagContainer.Controls.OfType<Label>();
+      return labelControls.Where(IsSelected).Select(l => l.Text);
+    }
+
+    private static bool IsSelected(Label label)
+    {
+      return label.BackColor != Color.Transparent;
+    }
+
+    private void txtUserText_TextChanged(object sender, System.EventArgs e)
+    {
+      this.SuspendLayout();
+      var useFontName = string.IsNullOrWhiteSpace(this.txtUserText.Text);
+      foreach (Label label in this.flpLabelContainer.Controls)
+      {
+        label.Text = useFontName ? label.Font.FontFamily.Name : this.txtUserText.Text;
+      }
+      this.ResumeLayout(true);
     }
 
     private void lblFont_Click(object sender, System.EventArgs e)
@@ -98,8 +118,7 @@ namespace FontExplorer
     private void lblTag_Click(object sender, System.EventArgs e)
     {
       var clickedLabel = (Label)sender;
-      bool isSelecting = clickedLabel.BackColor == Color.Transparent;
-      if (isSelecting)
+      if (!IsSelected(clickedLabel))
       {
         clickedLabel.BackColor = Color.CornflowerBlue;
         clickedLabel.ForeColor = Color.White;
@@ -110,7 +129,15 @@ namespace FontExplorer
         clickedLabel.ForeColor = Color.Black;
       }
 
-      this.ApplyFilters();
+      var selectedTags = this.SelectedTags();
+      if (selectedTags.Any())
+      {
+        this.ApplyFilters(selectedTags);
+      }
+      else
+      {
+        this.CreateFontLabels(this.fontList.Select(ff => ff.Name));
+      }
     }
   }
 }

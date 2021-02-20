@@ -1,18 +1,15 @@
 ﻿using FontExplorer.Dtos;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Text;
-using System.IO;
 using System.Linq;
-using System.Text.Json;
 using System.Windows.Forms;
 
 namespace FontExplorer
 {
   public partial class mdiContainer : Form
   {
-    private readonly List<FontFamily> fontList;
+    private readonly IList<FontFamily> fontList;
     private InstalledFontsDto installedFontsDto;
 
     public mdiContainer()

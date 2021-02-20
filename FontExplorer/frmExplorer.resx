@@ -93,6 +93,39 @@
   <data name="flpLabelContainer.AutoScroll" type="System.Boolean, System.Private.CoreLib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;lblSample.Name" xml:space="preserve">
+    <value>lblSample</value>
+  </data>
+  <data name="&gt;&gt;lblSample.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSample.Parent" xml:space="preserve">
+    <value>flpLabelContainer</value>
+  </data>
+  <data name="&gt;&gt;lblSample.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="flpLabelContainer.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+    <value>0, 47</value>
+  </data>
+  <data name="flpLabelContainer.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>847, 478</value>
+  </data>
+  <data name="flpLabelContainer.TabIndex" type="System.Int32, System.Private.CoreLib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;flpLabelContainer.Name" xml:space="preserve">
+    <value>flpLabelContainer</value>
+  </data>
+  <data name="&gt;&gt;flpLabelContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flpLabelContainer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;flpLabelContainer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
   <data name="lblSample.Font" type="System.Drawing.Font, System.Drawing.Common">
     <value>Segoe UI, 24pt</value>
@@ -133,68 +166,44 @@
   <data name="&gt;&gt;lblSample.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="flpLabelContainer.Location" type="System.Drawing.Point, System.Drawing.Primitives">
-    <value>0, 47</value>
-  </data>
-  <data name="flpLabelContainer.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>847, 478</value>
-  </data>
-  <data name="flpLabelContainer.TabIndex" type="System.Int32, System.Private.CoreLib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;flpLabelContainer.Name" xml:space="preserve">
-    <value>flpLabelContainer</value>
-  </data>
-  <data name="&gt;&gt;flpLabelContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;flpLabelContainer.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;flpLabelContainer.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="flpTagContainer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <data name="flpTagContainer.AutoScroll" type="System.Boolean, System.Private.CoreLib">
     <value>True</value>
   </data>
-  <data name="lblTagSample.AutoSize" type="System.Boolean, System.Private.CoreLib">
+  <data name="lblTagHidden.AutoSize" type="System.Boolean, System.Private.CoreLib">
     <value>True</value>
   </data>
-  <data name="lblTagSample.Font" type="System.Drawing.Font, System.Drawing.Common">
+  <data name="lblTagHidden.Font" type="System.Drawing.Font, System.Drawing.Common">
     <value>Segoe UI, 9.75pt</value>
   </data>
-  <data name="lblTagSample.Location" type="System.Drawing.Point, System.Drawing.Primitives">
+  <data name="lblTagHidden.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>3, 0</value>
   </data>
   <assembly alias="System.Windows.Forms.Primitives" name="System.Windows.Forms.Primitives, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblTagSample.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
+  <data name="lblTagHidden.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms.Primitives">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="lblTagSample.Size" type="System.Drawing.Size, System.Drawing.Primitives">
-    <value>90, 21</value>
+  <data name="lblTagHidden.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>54, 21</value>
   </data>
-  <data name="lblTagSample.TabIndex" type="System.Int32, System.Private.CoreLib">
+  <data name="lblTagHidden.TabIndex" type="System.Int32, System.Private.CoreLib">
     <value>0</value>
   </data>
-  <data name="lblTagSample.Text" xml:space="preserve">
-    <value>lblTagSample</value>
+  <data name="lblTagHidden.Text" xml:space="preserve">
+    <value>Hidden</value>
   </data>
-  <data name="lblTagSample.Visible" type="System.Boolean, System.Private.CoreLib">
-    <value>False</value>
+  <data name="&gt;&gt;lblTagHidden.Name" xml:space="preserve">
+    <value>lblTagHidden</value>
   </data>
-  <data name="&gt;&gt;lblTagSample.Name" xml:space="preserve">
-    <value>lblTagSample</value>
-  </data>
-  <data name="&gt;&gt;lblTagSample.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblTagHidden.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblTagSample.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblTagHidden.Parent" xml:space="preserve">
     <value>flpTagContainer</value>
   </data>
-  <data name="&gt;&gt;lblTagSample.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblTagHidden.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="flpTagContainer.Location" type="System.Drawing.Point, System.Drawing.Primitives">

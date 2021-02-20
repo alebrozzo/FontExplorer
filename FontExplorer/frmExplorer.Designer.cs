@@ -36,7 +36,7 @@ namespace FontExplorer
       this.lblSample = new System.Windows.Forms.Label();
       this.ttFontName = new System.Windows.Forms.ToolTip(this.components);
       this.flpTagContainer = new System.Windows.Forms.FlowLayoutPanel();
-      this.lblTagSample = new System.Windows.Forms.Label();
+      this.lblTagHidden = new System.Windows.Forms.Label();
       this.flpLabelContainer.SuspendLayout();
       this.flpTagContainer.SuspendLayout();
       this.SuspendLayout();
@@ -66,15 +66,15 @@ namespace FontExplorer
       // flpTagContainer
       // 
       resources.ApplyResources(this.flpTagContainer, "flpTagContainer");
-      this.flpTagContainer.Controls.Add(this.lblTagSample);
+      this.flpTagContainer.Controls.Add(this.lblTagHidden);
       this.flpTagContainer.Name = "flpTagContainer";
       // 
-      // lblTagSample
+      // lblTagHidden
       // 
-      resources.ApplyResources(this.lblTagSample, "lblTagSample");
-      this.lblTagSample.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.lblTagSample.Name = "lblTagSample";
-      this.lblTagSample.UseMnemonic = false;
+      resources.ApplyResources(this.lblTagHidden, "lblTagHidden");
+      this.lblTagHidden.BackColor = System.Drawing.Color.Transparent;
+      this.lblTagHidden.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.lblTagHidden.Name = "lblTagHidden";
       // 
       // frmExplorer
       // 
@@ -101,6 +101,6 @@ namespace FontExplorer
     private System.Windows.Forms.Label lblSample;
     private System.Windows.Forms.ToolTip ttFontName;
     private System.Windows.Forms.FlowLayoutPanel flpTagContainer;
-    private System.Windows.Forms.Label lblTagSample;
+    private System.Windows.Forms.Label lblTagHidden;
   }
 }
