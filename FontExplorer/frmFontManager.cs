@@ -57,7 +57,7 @@ namespace FontExplorer
         this.clstExistingTags.Items.AddRange(existing.ToArray());
         this.clstCurrentTags.Items.Clear();
         this.clstCurrentTags.Items.AddRange(current.ToArray());
-        this.installedFontsDto.Save();
+        _ = this.installedFontsDto.Save();
       }
       this.ResumeLayout(true);
     }
@@ -79,7 +79,7 @@ namespace FontExplorer
         this.clstCurrentTags.Items.AddRange(current.ToArray());
         this.clstExistingTags.Items.Clear();
         this.clstExistingTags.Items.AddRange(existing.ToArray());
-        this.installedFontsDto.Save();
+        _ = this.installedFontsDto.Save();
         this.ResumeLayout(true);
       }
     }
@@ -90,13 +90,13 @@ namespace FontExplorer
       {
         this.SuspendLayout();
         var newTag = this.txtNewTag.Text.Trim();
+        this.selectedFontDto.Tags.Add(newTag);
+        this.installedFontsDto.Tags.Add(newTag);
+        _ = this.installedFontsDto.Save();
         var current = new SortedSet<string>(this.clstCurrentTags.Items.OfType<string>());
         current.Add(newTag);
         this.clstCurrentTags.Items.Clear();
         this.clstCurrentTags.Items.AddRange(current.ToArray());
-        this.selectedFontDto.Tags.Add(newTag);
-        this.installedFontsDto.Tags.Add(newTag);
-        this.installedFontsDto.Save();
         this.txtNewTag.Text = string.Empty;
         this.ResumeLayout(true);
       }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace FontExplorer.Dtos
 {
@@ -30,11 +31,10 @@ namespace FontExplorer.Dtos
       return JsonSerializer.Deserialize<InstalledFontsDto>(jsonDb);
     }
 
-    public void Save()
+    public async Task Save()
     {
-      // TODO: do this async
       string text = JsonSerializer.Serialize(this);
-      File.WriteAllText(FontDbFileName, text);
+      await File.WriteAllTextAsync(FontDbFileName, text);
     }
   }
 
