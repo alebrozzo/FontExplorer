@@ -1,9 +1,9 @@
-﻿using FontExplorer.Dtos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using FontExplorer.Dtos;
 
 namespace FontExplorer
 {
