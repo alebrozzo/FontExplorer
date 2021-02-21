@@ -82,24 +82,34 @@ namespace FontExplorer
 
     private IList<string> GetFontsToShow(IList<string> selectedTags)
     {
-      IList<string> fontsToShow;
       var noTagSelected = selectedTags.Count() == 0;
       if (noTagSelected)
       {
-        fontsToShow = this.GetAllNonHiddenFonts();
-      }
-      else
-      {
-        fontsToShow = this.GetFontsWithMatchingTag(selectedTags);
+        return this.GetAllNonHiddenFonts();
       }
 
-      return fontsToShow;
+      bool isHiddenSelected = selectedTags.Contains(InstalledFontsDto.HiddenFontTag);
+      if (isHiddenSelected)
+      {
+        return this.GetHiddenFonts();
+      }
+
+      return this.GetFontsWithMatchingTag(selectedTags);
     }
 
     private IList<string> GetFontsWithMatchingTag(IList<string> selectedTags)
     {
       return this.installedFontsDto.Fonts
         .Where(f => f.Tags.Any(t => selectedTags.Contains(t)))
+        .Where(f => !f.Tags.Contains(InstalledFontsDto.HiddenFontTag))
+        .Select(f => f.Family)
+        .ToList();
+    }
+
+    private IList<string> GetHiddenFonts()
+    {
+      return this.installedFontsDto.Fonts
+        .Where(f => f.Tags.Contains(InstalledFontsDto.HiddenFontTag))
         .Select(f => f.Family)
         .ToList();
     }
