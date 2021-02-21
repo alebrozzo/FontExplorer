@@ -39,6 +39,10 @@ namespace FontExplorer
       var nonUsedTags = this.installedFontsDto.Tags.Except(this.selectedFontDto.Tags);
       this.clstCurrentTags.Items.AddRange(this.selectedFontDto.Tags.ToArray());
       this.clstExistingTags.Items.AddRange(nonUsedTags.ToArray());
+
+      bool isHiddenFont = selectedFontDto.Tags.Contains(InstalledFontsDto.HiddenFontTag);
+      this.chkHide.Checked = isHiddenFont;
+      this.SetVisibility(visible: !isHiddenFont);
     }
 
     private void btnAddTag_Click(object sender, System.EventArgs e)
