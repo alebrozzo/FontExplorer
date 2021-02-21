@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -9,6 +8,8 @@ namespace FontExplorer.Dtos
   public class InstalledFontsDto
   {
     private const string FontDbFileName = "FontDb.json";
+
+    public static readonly string HiddenFontTag = " Hidden fonts";
 
     public IList<FontDto> Fonts { get; set; }
 

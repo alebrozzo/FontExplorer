@@ -1,4 +1,5 @@
 ﻿using FontExplorer.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -100,6 +101,34 @@ namespace FontExplorer
         this.txtNewTag.Text = string.Empty;
         this.ResumeLayout(true);
       }
+    }
+
+    private void chkHide_CheckedChanged(object sender, EventArgs e)
+    {
+      bool visible = !this.chkHide.Checked;
+      this.SetVisibility(visible);
+      if (visible)
+      {
+        this.selectedFontDto.Tags.Remove(InstalledFontsDto.HiddenFontTag);
+      }
+      else
+      {
+        this.selectedFontDto.Tags.Add(InstalledFontsDto.HiddenFontTag);
+        // Initially it will not exist
+        this.installedFontsDto.Tags.Add(InstalledFontsDto.HiddenFontTag);
+      }
+      _ = this.installedFontsDto.Save();
+    }
+
+    private void SetVisibility(bool visible)
+    {
+      this.lblAddNewTag.Visible = visible;
+      this.txtNewTag.Visible = visible;
+      this.lblExistingTags.Visible = visible;
+      this.clstExistingTags.Visible = visible;
+      this.lblCurrentTags.Visible = visible;
+      this.clstCurrentTags.Visible = visible;
+      this.tlpButtons.Visible = visible;
     }
   }
 }

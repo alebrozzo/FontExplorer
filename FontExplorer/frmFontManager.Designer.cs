@@ -44,6 +44,7 @@ namespace FontExplorer
       this.btnRemoveTag = new System.Windows.Forms.Button();
       this.lblAllLetters = new System.Windows.Forms.Label();
       this.pnlHeader = new System.Windows.Forms.Panel();
+      this.chkHide = new System.Windows.Forms.CheckBox();
       this.tlpTags.SuspendLayout();
       this.flpNewTag.SuspendLayout();
       this.tlpButtons.SuspendLayout();
@@ -120,6 +121,7 @@ namespace FontExplorer
       this.tlpTags.Controls.Add(this.tlpButtons, 1, 2);
       this.tlpTags.Controls.Add(this.lblExistingTags, 0, 1);
       this.tlpTags.Controls.Add(this.lblCurrentTags, 2, 1);
+      this.tlpTags.Controls.Add(this.chkHide, 0, 0);
       this.tlpTags.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tlpTags.Location = new System.Drawing.Point(0, 95);
       this.tlpTags.Name = "tlpTags";
@@ -208,6 +210,17 @@ namespace FontExplorer
       this.pnlHeader.Size = new System.Drawing.Size(904, 95);
       this.pnlHeader.TabIndex = 9;
       // 
+      // chkHide
+      // 
+      this.chkHide.AutoSize = true;
+      this.chkHide.Location = new System.Drawing.Point(3, 3);
+      this.chkHide.Name = "chkHide";
+      this.chkHide.Size = new System.Drawing.Size(98, 19);
+      this.chkHide.TabIndex = 10;
+      this.chkHide.Text = "&Hide this font";
+      this.chkHide.UseVisualStyleBackColor = true;
+      this.chkHide.CheckedChanged += new System.EventHandler(this.chkHide_CheckedChanged);
+      // 
       // frmFontManager
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -220,6 +233,7 @@ namespace FontExplorer
       this.Name = "frmFontManager";
       this.Text = "Font Manager";
       this.tlpTags.ResumeLayout(false);
+      this.tlpTags.PerformLayout();
       this.flpNewTag.ResumeLayout(false);
       this.flpNewTag.PerformLayout();
       this.tlpButtons.ResumeLayout(false);
@@ -244,5 +258,6 @@ namespace FontExplorer
     private System.Windows.Forms.TextBox txtNewTag;
     private System.Windows.Forms.FlowLayoutPanel flpNewTag;
     private System.Windows.Forms.Label lblAddNewTag;
+    private System.Windows.Forms.CheckBox chkHide;
   }
 }

@@ -1,4 +1,5 @@
 ﻿using FontExplorer.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -8,21 +9,20 @@ namespace FontExplorer
 {
   public partial class frmExplorer : Form
   {
-    private readonly IList<FontFamily> fontList;
     private InstalledFontsDto installedFontsDto;
 
-    public frmExplorer(IList<FontFamily> fontList, InstalledFontsDto installedFontsDto)
+    public frmExplorer(IList<string> fontList, InstalledFontsDto installedFontsDto)
     {
       InitializeComponent();
       this.SuspendLayout();
-      this.fontList = fontList;
       this.installedFontsDto = installedFontsDto;
-      this.CreateFontLabels(fontList.Select(ff => ff.Name));
       this.CreateTagLabels(this.installedFontsDto.Tags);
+      this.CreateFontLabels(fontList);
+      this.ApplyFilters(new List<string>(0));
       this.ResumeLayout(true);
     }
 
-    private void CreateFontLabels(IEnumerable<string> fontList)
+    private void CreateFontLabels(IList<string> fontList)
     {
       this.flpLabelContainer.Controls.Clear();
       foreach (var fontFamily in fontList)
@@ -75,35 +75,86 @@ namespace FontExplorer
       return newLabel;
     }
 
-    private void ApplyFilters(IEnumerable<string> selectedTags)
+    // TODO: Split this into two methods
+    private void ApplyFilters(IList<string> selectedTags)
     {
-      var fontNameList = this.installedFontsDto.Fonts
-        .Where(f => f.Tags.Any(t => selectedTags.Contains(t)))
-        .Select(f => f.Family);
-      this.FilterFontLabels(fontNameList);
+      IList<string> fontsToShow;
+      var noTagSelected = selectedTags.Count() == 0;
+      if (noTagSelected)
+      {
+        fontsToShow = this.ShowAllNonHiddenFonts();
+      }
+      else
+      {
+        fontsToShow = this.GetFontsWithMatchingTag(selectedTags);
+      }
+      this.FilterFontLabels(fontsToShow);
     }
 
-    private void FilterFontLabels(IEnumerable<string> fontNameList)
+    private IList<string> GetFontsWithMatchingTag(IList<string> selectedTags)
     {
+      return this.installedFontsDto.Fonts
+        .Where(f => f.Tags.Any(t => selectedTags.Contains(t)))
+        .Select(f => f.Family)
+        .ToList();
+    }
+
+    private IList<string> ShowAllNonHiddenFonts()
+    {
+      var allFontsToHide = this.installedFontsDto.Fonts
+        .Where(f => f.Tags.Contains(InstalledFontsDto.HiddenFontTag))
+        .Select(f => f.Family)
+        .ToList();
+      var allFontNames = this.flpLabelContainer.Controls.OfType<Label>().Select(l => l.Font.FontFamily.Name);
+      var notHidentFontNames = allFontNames.Where(fontName => !allFontsToHide.Contains(fontName));
+      return notHidentFontNames.ToList();
+    }
+
+    private void FilterFontLabels(IList<string> fontNameList)
+    {
+      var selectedTags = this.SelectedTags();
+      var hiddenOnly = selectedTags.Contains(InstalledFontsDto.HiddenFontTag);
+      var forceVisible = selectedTags.Count() == 0;
       this.flpLabelContainer.SuspendLayout();
-      var fontList = fontNameList.ToList();
-      var forceVisible = this.SelectedTags().Count() == 0;
       foreach (Label label in this.flpLabelContainer.Controls)
       {
-        label.Visible = forceVisible || fontList.Contains(label.Font.FontFamily.Name);
+        label.Visible = fontNameList.Contains(label.Font.FontFamily.Name);
       }
       this.flpLabelContainer.ResumeLayout(true);
     }
 
-    private IEnumerable<string> SelectedTags()
+    private IList<string> SelectedTags()
     {
       var labelControls = this.flpTagContainer.Controls.OfType<Label>();
-      return labelControls.Where(IsSelected).Select(l => l.Text);
+      return labelControls.Where(IsSelected).Select(l => l.Text).ToList();
     }
 
     private static bool IsSelected(Label label)
     {
       return label.BackColor != Color.Transparent;
+    }
+
+    private void SetTagLabelAsSelected(Label label)
+    {
+      label.BackColor = Color.CornflowerBlue;
+      label.ForeColor = Color.White;
+    }
+
+    private void SetTagLabelAsNotSelected(Label label)
+    {
+      label.BackColor = Color.Transparent;
+      label.ForeColor = Color.Black;
+    }
+
+    private void SetAllTagLabelAsNotSelected()
+    {
+      foreach (Label label in this.flpTagContainer.Controls)
+      {
+        if (label.Text != InstalledFontsDto.HiddenFontTag)
+        {
+          this.SetTagLabelAsNotSelected(label);
+        }
+      }
     }
 
     private void txtUserText_TextChanged(object sender, System.EventArgs e)
@@ -130,13 +181,20 @@ namespace FontExplorer
       var clickedLabel = (Label)sender;
       if (!IsSelected(clickedLabel))
       {
-        clickedLabel.BackColor = Color.CornflowerBlue;
-        clickedLabel.ForeColor = Color.White;
+        this.SetTagLabelAsSelected(clickedLabel);
+        if (clickedLabel.Text == InstalledFontsDto.HiddenFontTag)
+        {
+          this.SetAllTagLabelAsNotSelected();
+        }
+        else
+        {
+          var hiddenTag = this.flpTagContainer.Controls.OfType<Label>().SingleOrDefault(l => l.Text == InstalledFontsDto.HiddenFontTag);
+          this.SetTagLabelAsNotSelected(hiddenTag);
+        }
       }
       else
       {
-        clickedLabel.BackColor = Color.Transparent;
-        clickedLabel.ForeColor = Color.Black;
+        this.SetTagLabelAsNotSelected(clickedLabel);
       }
 
       var selectedTags = this.SelectedTags();

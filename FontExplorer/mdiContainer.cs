@@ -41,7 +41,7 @@ namespace FontExplorer
       this.Cursor = Cursors.WaitCursor;
       Form childForm = e.ClickedItem.Tag switch
       {
-        "frmExplorer" => new frmExplorer(this.fontList, this.installedFontsDto),
+        "frmExplorer" => new frmExplorer(this.fontList.Select(ff => ff.Name).ToList(), this.installedFontsDto),
         _ => throw new System.Exception($"{e.ClickedItem.Tag} is not defined"),
       };
       this.Cursor = Cursors.Default;
