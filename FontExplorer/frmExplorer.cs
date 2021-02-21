@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,17 +9,23 @@ namespace FontExplorer
 {
   public partial class frmExplorer : Form
   {
-    private InstalledFontsDto installedFontsDto;
+    private readonly InstalledFontsDto installedFontsDto;
 
     public frmExplorer(IList<string> fontList, InstalledFontsDto installedFontsDto)
     {
       InitializeComponent();
-      this.SuspendLayout();
       this.installedFontsDto = installedFontsDto;
+      this.installedFontsDto.DatabaseUpdated += installedFontsDto_DatabaseUpdated;
+      this.LoadDatabaseInfo(fontList);
+    }
+
+    private void LoadDatabaseInfo(IList<string> fontList)
+    {
+      this.flpLabelContainer.SuspendLayout();
       this.CreateTagLabels(this.installedFontsDto.Tags);
       this.CreateFontLabels(fontList);
       this.ApplyFilters(new List<string>(0));
-      this.ResumeLayout(true);
+      this.flpLabelContainer.ResumeLayout(true);
     }
 
     private void CreateFontLabels(IList<string> fontList)
@@ -43,7 +50,7 @@ namespace FontExplorer
         Cursor = Cursors.Hand,
         Text = familyName,
       };
-      newLabel.Click += new System.EventHandler(this.lblFont_Click);
+      newLabel.Click += new EventHandler(this.lblFont_Click);
 
       this.ttFontName.SetToolTip(newLabel, familyName);
       return newLabel;
@@ -70,7 +77,7 @@ namespace FontExplorer
         ForeColor = Color.Black,
         Text = tagName,
       };
-      newLabel.Click += new System.EventHandler(this.lblTag_Click);
+      newLabel.Click += new EventHandler(this.lblTag_Click);
       return newLabel;
     }
 
@@ -172,7 +179,7 @@ namespace FontExplorer
       }
     }
 
-    private void txtUserText_TextChanged(object sender, System.EventArgs e)
+    private void txtUserText_TextChanged(object sender, EventArgs e)
     {
       this.flpLabelContainer.SuspendLayout();
       var useFontName = string.IsNullOrWhiteSpace(this.txtUserText.Text);
@@ -183,7 +190,7 @@ namespace FontExplorer
       this.flpLabelContainer.ResumeLayout(true);
     }
 
-    private void lblFont_Click(object sender, System.EventArgs e)
+    private void lblFont_Click(object sender, EventArgs e)
     {
       var frmFontManagerInstance = new frmFontManager(this.installedFontsDto);
       frmFontManagerInstance.SetSelectedFont(((Label)sender).Font.FontFamily);
@@ -191,7 +198,7 @@ namespace FontExplorer
       frmFontManagerInstance.Show();
     }
 
-    private void lblTag_Click(object sender, System.EventArgs e)
+    private void lblTag_Click(object sender, EventArgs e)
     {
       var clickedLabel = (Label)sender;
       if (!IsSelected(clickedLabel))
@@ -212,6 +219,12 @@ namespace FontExplorer
         this.SetTagLabelAsNotSelected(clickedLabel);
       }
 
+      var selectedTags = this.SelectedTags();
+      this.ApplyFilters(selectedTags);
+    }
+
+    private void installedFontsDto_DatabaseUpdated(object sender, EventArgs e)
+    {
       var selectedTags = this.SelectedTags();
       this.ApplyFilters(selectedTags);
     }

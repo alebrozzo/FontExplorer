@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace FontExplorer.Dtos
     private const string FontDbFileName = "FontDb.json";
 
     public static readonly string HiddenFontTag = " Hidden fonts";
+
+    public event EventHandler DatabaseUpdated;
 
     public IList<FontDto> Fonts { get; set; }
 
@@ -36,6 +39,12 @@ namespace FontExplorer.Dtos
     {
       string text = JsonSerializer.Serialize(this);
       await File.WriteAllTextAsync(FontDbFileName, text);
+      this.OnSave(new EventArgs());
+    }
+
+    protected virtual void OnSave(EventArgs e)
+    {
+       DatabaseUpdated?.Invoke(this, e);
     }
   }
 
