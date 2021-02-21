@@ -75,20 +75,26 @@ namespace FontExplorer
       return newLabel;
     }
 
-    // TODO: Split this into two methods
     private void ApplyFilters(IList<string> selectedTags)
+    {
+      var fontsToShow = this.GetFontsToShow(selectedTags);
+      this.FilterFontLabels(fontsToShow);
+    }
+
+    private IList<string> GetFontsToShow(IList<string> selectedTags)
     {
       IList<string> fontsToShow;
       var noTagSelected = selectedTags.Count() == 0;
       if (noTagSelected)
       {
-        fontsToShow = this.ShowAllNonHiddenFonts();
+        fontsToShow = this.GetAllNonHiddenFonts();
       }
       else
       {
         fontsToShow = this.GetFontsWithMatchingTag(selectedTags);
       }
-      this.FilterFontLabels(fontsToShow);
+
+      return fontsToShow;
     }
 
     private IList<string> GetFontsWithMatchingTag(IList<string> selectedTags)
@@ -99,7 +105,7 @@ namespace FontExplorer
         .ToList();
     }
 
-    private IList<string> ShowAllNonHiddenFonts()
+    private IList<string> GetAllNonHiddenFonts()
     {
       var allFontsToHide = this.installedFontsDto.Fonts
         .Where(f => f.Tags.Contains(InstalledFontsDto.HiddenFontTag))
