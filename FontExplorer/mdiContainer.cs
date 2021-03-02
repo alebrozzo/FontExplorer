@@ -32,9 +32,10 @@ namespace FontExplorer
 
     private void mnsMainMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
     {
-      bool formAlreadyOpen = this.MdiChildren.Any(form => form.Name == e.ClickedItem.Tag.ToString());
-      if (formAlreadyOpen)
+      var form = this.MdiChildren.FirstOrDefault(form => form.Name == e.ClickedItem.Tag.ToString());
+      if (form != null)
       {
+        form.Activate();
         return;
       }
 
