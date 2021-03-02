@@ -15,7 +15,7 @@ namespace FontExplorer
     {
       InitializeComponent();
       this.installedFontsDto = installedFontsDto;
-      this.installedFontsDto.DatabaseUpdated += installedFontsDto_DatabaseUpdated;
+      this.installedFontsDto.DatabaseUpdated += this.installedFontsDto_DatabaseUpdated;
       this.LoadDatabaseInfo(fontList);
     }
 
@@ -60,7 +60,11 @@ namespace FontExplorer
     {
       foreach (var tagName in tagList)
       {
-        this.flpTagContainer.Controls.Add(this.CreateTagLabel(tagName));
+        bool tagLabelExists = this.flpTagContainer.Controls.OfType<Label>().Any(ctrl => ctrl.Text == tagName);
+        if (!tagLabelExists)
+        {
+          this.flpTagContainer.Controls.Add(this.CreateTagLabel(tagName));
+        }
       }
     }
 
@@ -135,8 +139,6 @@ namespace FontExplorer
     private void FilterFontLabels(IList<string> fontNameList)
     {
       var selectedTags = this.SelectedTags();
-      var hiddenOnly = selectedTags.Contains(InstalledFontsDto.HiddenFontTag);
-      var forceVisible = selectedTags.Count() == 0;
       this.flpLabelContainer.SuspendLayout();
       foreach (Label label in this.flpLabelContainer.Controls)
       {
@@ -225,6 +227,7 @@ namespace FontExplorer
 
     private void installedFontsDto_DatabaseUpdated(object sender, EventArgs e)
     {
+      this.CreateTagLabels(this.installedFontsDto.Tags);
       var selectedTags = this.SelectedTags();
       this.ApplyFilters(selectedTags);
     }
