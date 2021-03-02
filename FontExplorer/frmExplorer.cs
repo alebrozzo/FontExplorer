@@ -132,8 +132,8 @@ namespace FontExplorer
         .Select(f => f.Family)
         .ToList();
       var allFontNames = this.flpLabelContainer.Controls.OfType<Label>().Select(l => l.Font.FontFamily.Name);
-      var notHidentFontNames = allFontNames.Where(fontName => !allFontsToHide.Contains(fontName));
-      return notHidentFontNames.ToList();
+      var notHiddenFontNames = allFontNames.Where(fontName => !allFontsToHide.Contains(fontName));
+      return notHiddenFontNames.ToList();
     }
 
     private void FilterFontLabels(IList<string> fontNameList)
@@ -212,7 +212,15 @@ namespace FontExplorer
         }
         else
         {
-          var hiddenTag = this.flpTagContainer.Controls.OfType<Label>().SingleOrDefault(l => l.Text == InstalledFontsDto.HiddenFontTag);
+          var hiddenTag = this.flpTagContainer.Controls.OfType<Label>().FirstOrDefault(l => l.Text == InstalledFontsDto.HiddenFontTag);
+          if (hiddenTag == null)
+          {
+            this.installedFontsDto.Tags.Add(InstalledFontsDto.HiddenFontTag);
+            this.installedFontsDto.Save().Wait();
+            this.CreateTagLabels(this.installedFontsDto.Tags);
+            hiddenTag = this.flpTagContainer.Controls.OfType<Label>().FirstOrDefault(l => l.Text == InstalledFontsDto.HiddenFontTag);
+          }
+
           this.SetTagLabelAsNotSelected(hiddenTag);
         }
       }
