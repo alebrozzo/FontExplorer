@@ -64,6 +64,12 @@
   <data name="tsiFontCount.Text" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="tsiVersion.Size" type="System.Drawing.Size, System.Drawing.Primitives">
+    <value>28, 17</value>
+  </data>
+  <data name="tsiVersion.Text" xml:space="preserve">
+    <value>v0.3</value>
+  </data>
   <data name="ssStatusBar.Location" type="System.Drawing.Point, System.Drawing.Primitives">
     <value>0, 501</value>
   </data>
@@ -3205,6 +3211,12 @@
   </data>
   <data name="&gt;&gt;mniManageFonts.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsiVersion.Name" xml:space="preserve">
+    <value>tsiVersion</value>
+  </data>
+  <data name="&gt;&gt;tsiVersion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=5.0.3.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>mdiContainer</value>

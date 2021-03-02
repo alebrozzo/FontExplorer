@@ -37,6 +37,7 @@ namespace FontExplorer
       this.mnsMainMenu = new System.Windows.Forms.MenuStrip();
       this.mniChooseFont = new System.Windows.Forms.ToolStripMenuItem();
       this.mniManageFonts = new System.Windows.Forms.ToolStripMenuItem();
+      this.tsiVersion = new System.Windows.Forms.ToolStripStatusLabel();
       this.ssStatusBar.SuspendLayout();
       this.mnsMainMenu.SuspendLayout();
       this.SuspendLayout();
@@ -44,7 +45,8 @@ namespace FontExplorer
       // ssStatusBar
       // 
       this.ssStatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsiFontCount});
+            this.tsiFontCount,
+            this.tsiVersion});
       resources.ApplyResources(this.ssStatusBar, "ssStatusBar");
       this.ssStatusBar.Name = "ssStatusBar";
       // 
@@ -73,6 +75,11 @@ namespace FontExplorer
       this.mniManageFonts.Name = "mniManageFonts";
       resources.ApplyResources(this.mniManageFonts, "mniManageFonts");
       // 
+      // tsiVersion
+      // 
+      this.tsiVersion.Name = "tsiVersion";
+      resources.ApplyResources(this.tsiVersion, "tsiVersion");
+      // 
       // mdiContainer
       // 
       resources.ApplyResources(this, "$this");
@@ -97,6 +104,7 @@ namespace FontExplorer
     private System.Windows.Forms.ToolStripMenuItem mniChooseFont;
     private System.Windows.Forms.ToolStripMenuItem mniManageFonts;
     internal System.Windows.Forms.StatusStrip ssStatusBar;
+    private System.Windows.Forms.ToolStripStatusLabel tsiVersion;
   }
 }
 
