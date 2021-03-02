@@ -25,7 +25,7 @@ namespace FontExplorer.Dtos
         var initDto = new InstalledFontsDto()
         {
           Fonts = new List<FontDto>(0),
-          Tags = new SortedSet<string>() { "temp3", "temp2", "temp3", "temp1", "temp1" },
+          Tags = new SortedSet<string>() { HiddenFontTag, "Glifos" },
         };
         var initDb = JsonSerializer.Serialize(initDto);
         File.WriteAllText(FontDbFileName, initDb);
