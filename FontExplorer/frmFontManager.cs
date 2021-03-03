@@ -23,7 +23,7 @@ namespace FontExplorer
       this.lblSelectedFont.Font = new Font(fontFamily, this.lblSelectedFont.Font.Size);
       this.lblSelectedFont.Text = fontFamily.Name;
       this.lblAllLetters.Font = new Font(fontFamily, this.lblAllLetters.Font.Size);
-      this.selectedFontDto = this.installedFontsDto.Fonts.SingleOrDefault(f => f.Family == fontFamily.Name);
+      this.selectedFontDto = this.installedFontsDto.Fonts.FirstOrDefault(f => f.Family == fontFamily.Name);
       if (this.selectedFontDto == null)
       {
         this.selectedFontDto = new FontDto()
@@ -34,9 +34,11 @@ namespace FontExplorer
         this.installedFontsDto.Fonts.Add(this.selectedFontDto);
       }
 
-      var nonUsedTags = this.installedFontsDto.Tags.Except(this.selectedFontDto.Tags);
-      this.clstCurrentTags.Items.AddRange(this.selectedFontDto.Tags.ToArray());
-      this.clstExistingTags.Items.AddRange(nonUsedTags.ToArray());
+      var hiddenTagAsList = new List<string>(1) { InstalledFontsDto.HiddenFontTag };
+      var notSelectedTags = this.installedFontsDto.Tags.Except(this.selectedFontDto.Tags).Except(hiddenTagAsList);
+      var selectedTags = this.selectedFontDto.Tags.Except(hiddenTagAsList);
+      this.clstCurrentTags.Items.AddRange(selectedTags.ToArray());
+      this.clstExistingTags.Items.AddRange(notSelectedTags.ToArray());
 
       bool isHiddenFont = selectedFontDto.Tags.Contains(InstalledFontsDto.HiddenFontTag);
       this.chkHide.Checked = isHiddenFont;
@@ -116,7 +118,6 @@ namespace FontExplorer
       else
       {
         this.selectedFontDto.Tags.Add(InstalledFontsDto.HiddenFontTag);
-        // Initially it will not exist
         this.installedFontsDto.Tags.Add(InstalledFontsDto.HiddenFontTag);
       }
       _ = this.installedFontsDto.Save();
